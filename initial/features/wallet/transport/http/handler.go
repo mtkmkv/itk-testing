@@ -1,4 +1,4 @@
-package http
+package feature_wallet_transport_http
 
 import (
 	"encoding/json"
@@ -7,8 +7,8 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/mtkmkv/itk-testing/initial/features/wallet/repository"
-	"github.com/mtkmkv/itk-testing/initial/features/wallet/service"
+	repository "github.com/mtkmkv/itk-testing/initial/features/wallet/repository"
+	service "github.com/mtkmkv/itk-testing/initial/features/wallet/service"
 )
 
 type Handler struct {

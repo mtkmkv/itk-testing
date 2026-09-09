@@ -1,4 +1,4 @@
-package postgres
+package features_wallet_repository_postgres
 
 import (
 	"context"
@@ -9,7 +9,7 @@ import (
 	"github.com/google/uuid"
 
 	"github.com/mtkmkv/itk-testing/initial/core/domain"
-	"github.com/mtkmkv/itk-testing/initial/features/wallet/repository"
+	repository "github.com/mtkmkv/itk-testing/initial/features/wallet/repository"
 )
 
 type Repository struct {

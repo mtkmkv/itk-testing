@@ -1,4 +1,4 @@
-package service
+package feature_wallet_service
 
 import (
 	"context"
@@ -7,7 +7,7 @@ import (
 	"github.com/google/uuid"
 
 	"github.com/mtkmkv/itk-testing/initial/core/domain"
-	"github.com/mtkmkv/itk-testing/initial/features/wallet/repository"
+	repository "github.com/mtkmkv/itk-testing/initial/features/wallet/repository"
 )
 
 var (

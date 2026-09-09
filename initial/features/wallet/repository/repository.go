@@ -1,4 +1,4 @@
-package repository
+package features_wallet_repository
 
 import (
 	"context"
