@@ -1,4 +1,5 @@
 services:
+
   postgres:
     image: postgres:18.4-bookworm
     container_name: itk-testing-postgres
@@ -17,6 +18,28 @@ services:
       - ${PROJECT_ROOT}/migrations:/migrations
     depends_on:
       - postgres
+    command:
+      - -path
+      - /migrations
+      - -database
+      - postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}?sslmode=disable
+      - up
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: itk-testing-app
+    env_file:
+      - config.env
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+    depends_on:
+      - postgres-migrate
+    ports:
+      - "8080:8080"
+    restart: always
 
   port-forwarder:
     image: alpine/socat:1.8.1.3

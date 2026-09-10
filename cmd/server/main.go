@@ -28,7 +28,8 @@ func main() {
 	dsn := "postgres://" +
 		os.Getenv("POSTGRES_USER") + ":" +
 		os.Getenv("POSTGRES_PASSWORD") + "@" +
-		"localhost:15432/" +
+		os.Getenv("POSTGRES_HOST") + ":" +
+		os.Getenv("POSTGRES_PORT") + "/" +
 		os.Getenv("POSTGRES_DB") +
 		"?sslmode=disable"
 
@@ -45,7 +46,6 @@ func main() {
 	repository := walletRepository.NewRepository(db)
 	service := walletService.NewService(repository)
 	handler := walletHTTP.NewHandler(service)
-
 	router := coreHTTP.NewRouter(handler)
 
 	config, err := httpserver.NewConfig()
